@@ -20,7 +20,6 @@ export default function PostsPage(): JSX.Element {
                     <InfiniteScroll
                         dataLength={posts.length}
                         hasMore={true}
-                        height={'100vh'}
                         loader={<h4>Loading...</h4>}
                         next={() => fetchData()}
                     >
