@@ -46,7 +46,7 @@ function SimpleModal({ open, onClose, title, children }: ISimpleModalProps): JSX
                                             className='absolute top-4 right-4 cursor-pointer h-6 w-6'
                                             onClick={onClose}
                                         />
-                                        <Dialog.Title as='h3' className='text-2xl font-bold text-text-gradient text-center  '>
+                                        <Dialog.Title as='h3' className='text-2xl font-bold text-text-gradient text-center'>
                                             {title}
                                         </Dialog.Title>
                                         <div className='mt-2' ref={divChildrenRef}>
