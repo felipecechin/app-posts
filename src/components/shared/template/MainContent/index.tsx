@@ -4,7 +4,7 @@ interface IMainContentProps {
 
 function MainContent({ children }: IMainContentProps): JSX.Element {
     return (
-        <main className="px-4 py-16 h-screen">
+        <main className="py-16 h-screen">
             {children}
         </main>
     )
