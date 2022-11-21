@@ -4,7 +4,7 @@ import MainContent from '@/components/shared/template/MainContent'
 import { useState } from 'react'
 
 export default function PostsPage(): JSX.Element {
-    const [posts, setPosts] = useState(Array.from({ length: 25 }))
+    const [posts, setPosts] = useState(Array.from({ length: 40 }))
 
     const fetchData = (): void => {
         setTimeout(() => {
@@ -23,7 +23,7 @@ export default function PostsPage(): JSX.Element {
                         loader={<h4>Loading...</h4>}
                         next={() => fetchData()}
                     >
-                        <div className='grid grid-cols-6 gap-y-4 mt-4 overflow-auto'>
+                        <div className='grid grid-cols-6 gap-y-4 mt-4 overflow-auto px-0 sm:px-4'>
                             {posts.map((_, index) => {
                                 if (index % 6 === 0) {
                                     return (
