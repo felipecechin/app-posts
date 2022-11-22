@@ -1,0 +1,23 @@
+.content {
+    @apply text-text-color text-sm;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.title {
+    @apply text-text-gradient font-bold text-xl h-[3.5rem];
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.author {
+    @apply text-text-color truncate text-sm;
+}
