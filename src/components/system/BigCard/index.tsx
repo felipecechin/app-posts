@@ -9,8 +9,8 @@ interface IBigCardProps {
 
 function BigCard({ post }: IBigCardProps): JSX.Element {
     return (
-        <div className='bg-white grid grid-cols-2 h-[350px]'>
-            <div className='relative'>
+        <div className='bg-white grid grid-cols-1 sm:grid-cols-2 h-[200px] sm:h-[350px]'>
+            <div className='hidden sm:block sm:relative'>
                 <Image
                     alt={post.title + ' image'}
                     fill

@@ -12,7 +12,7 @@ interface ISmallCardProps {
 function SmallCard({ post, imagePosition }: ISmallCardProps): JSX.Element {
     const divImage = useMemo(() => {
         return (
-            <div className='relative'>
+            <div className='hidden sm:block sm:relative'>
                 <Image
                     alt={post.title + ' image'}
                     fill
@@ -24,9 +24,9 @@ function SmallCard({ post, imagePosition }: ISmallCardProps): JSX.Element {
     }, [post])
 
     return (
-        <div className='bg-white grid grid-cols-3 h-[200px] relative'>
+        <div className='bg-white grid grid-cols-1 sm:grid-cols-3 h-[200px] relative'>
             {imagePosition === 'left' && divImage}
-            <div className='col-span-2 flex items-center relative'>
+            <div className='sm:col-span-2 flex items-center relative'>
                 <CardDescription
                     authorName={post.author.name}
                     content={post.content}
