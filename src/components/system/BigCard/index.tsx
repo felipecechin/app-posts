@@ -11,7 +11,7 @@ interface IBigCardProps {
 function BigCard({ post }: IBigCardProps): JSX.Element {
     return (
         <Link
-            className='block hover:border hover:border-black hover:shadow-lg'
+            className='block border border-transparent hover:border-black hover:shadow-xl'
             href={'/' + post.id}
         >
             <div

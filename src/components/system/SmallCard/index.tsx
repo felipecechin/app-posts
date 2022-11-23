@@ -26,7 +26,7 @@ function SmallCard({ post, imagePosition }: ISmallCardProps): JSX.Element {
 
     return (
         <Link
-            className='block hover:border hover:border-black hover:shadow-lg'
+            className='block border border-transparent hover:border-black hover:shadow-xl'
             href={'/' + post.id}
         >
             <div className='bg-white grid grid-cols-1 sm:grid-cols-3 h-[200px] relative'>
