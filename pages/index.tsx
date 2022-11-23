@@ -17,7 +17,7 @@ interface IPostsPageProps {
 export default function PostsPage({ posts }: IPostsPageProps): JSX.Element {
     const [postsData, setPostsData] = useState({
         posts,
-        startMorePosts: 8,
+        startMorePosts: posts.length,
         hasMore: true,
     })
 
