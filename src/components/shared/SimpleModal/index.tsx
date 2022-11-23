@@ -14,8 +14,16 @@ function SimpleModal({ open, onClose, title, children }: ISimpleModalProps): JSX
     const divChildrenRef = useRef(null)
 
     return (
-        <Transition.Root as={Fragment} show={open}>
-            <Dialog as='div' className='relative z-10' initialFocus={divChildrenRef} onClose={onClose}>
+        <Transition.Root
+            as={Fragment}
+            show={open}
+        >
+            <Dialog
+                as='div'
+                className='relative z-10'
+                initialFocus={divChildrenRef}
+                onClose={onClose}
+            >
                 <Transition.Child
                     as={Fragment}
                     enter='ease-out duration-300'
@@ -40,18 +48,22 @@ function SimpleModal({ open, onClose, title, children }: ISimpleModalProps): JSX
                             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
                         >
                             <Dialog.Panel className='relative transform overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 w-full max-w-lg'>
-                                <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
-                                    <div className='mt-3 sm:mt-0 sm:ml-4'>
-                                        <HiOutlineX
-                                            className='absolute top-4 right-4 cursor-pointer h-6 w-6'
-                                            onClick={onClose}
-                                        />
-                                        <Dialog.Title as='h3' className='text-2xl font-bold text-text-gradient text-center'>
-                                            {title}
-                                        </Dialog.Title>
-                                        <div className='mt-2' ref={divChildrenRef}>
-                                            {children}
-                                        </div>
+                                <div className='bg-white px-10 sm:px-20 py-14'>
+                                    <HiOutlineX
+                                        className='absolute top-4 right-4 cursor-pointer h-6 w-6'
+                                        onClick={onClose}
+                                    />
+                                    <Dialog.Title
+                                        as='h3'
+                                        className='text-2xl font-bold text-text-gradient text-center'
+                                    >
+                                        {title}
+                                    </Dialog.Title>
+                                    <div
+                                        className='mt-2'
+                                        ref={divChildrenRef}
+                                    >
+                                        {children}
                                     </div>
                                 </div>
                             </Dialog.Panel>
