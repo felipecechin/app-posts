@@ -1,4 +1,4 @@
-## Front End Test Project
+## Front End Project
 The application was built using the following technologies:
 - Next.js;
 - React;
