@@ -4,6 +4,7 @@ import { IPost } from '@/types/post'
 import Image from 'next/image'
 import MainContent from '@/components/shared/template/MainContent'
 import dayjs from 'dayjs'
+import fetcher from '@/utils/fetcher'
 import { useMemo } from 'react'
 
 interface IPostPageProps {
@@ -45,7 +46,12 @@ export default function PostPage({ post }: IPostPageProps): JSX.Element {
                             </div>
                         </div>
                         <div className='px-10 sm:px-32 py-20'>
-                            <p className='text-text-color'>{post.content}</p>
+                            <p
+                                className='text-text-color'
+                                dangerouslySetInnerHTML={{
+                                    __html: post.content,
+                                }}
+                            ></p>
                         </div>
                     </article>
                 </div>
@@ -55,16 +61,15 @@ export default function PostPage({ post }: IPostPageProps): JSX.Element {
 }
 
 export const getServerSideProps: GetServerSideProps<{ post: IPost }> = async ({ params }) => {
-    console.log(params)
-    const post = {
-        id: 1,
-        author: { name: 'Sheila C. Boyd' },
-        title: 'I hope the dog doesn slobber on me.',
-        content:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod vestibulum erat vulputate semper. Fusce consequat lobortis mi. Donec eu orci lectus. Aenean leo arcu, sollicitudin id interdum at, sagittis egestas ante. Aliquam erat volutpat. Phasellus lobortis risus in augue bibendum, at aliquet metus consequat. Mauris venenatis dictum nisl ac congue. Etiam non quam dictum, imperdiet lectus at, gravida massa. Vivamus mattis nibh massa, vitae blandit neque tincidunt quis. In malesuada lacus a ultrices luctus. Ut lacinia enim sed libero lobortis, vitae tempus erat laoreet. Integer commodo odio pulvinar diam faucibus, vitae venenatis tellus vulputate. Sed rutrum leo nisi, a blandit elit semper id. Suspendisse at bibendum lacus, nec gravida purus. Duis vehicula faucibus diam et mattis. In bibendum nisi in leo efficitur, nec venenatis justo cursus. Nulla eget lectus diam. Nunc ex nulla, facilisis a convallis eu, dictum vitae libero. Nam rutrum commodo lectus, sed auctor nisi porttitor ac. Donec maximus, tellus nec tincidunt porttitor, lacus sapien pellentesque turpis, ut tempor enim dolor a felis. Vivamus maximus hendrerit egestas. Sed vel nunc dictum, lobortis purus at, iaculis erat. Pellentesque at quam non neque euismod pulvinar sit amet sit amet arcu. Fusce at iaculis mi, in semper nisi. Fusce lacus metus, commodo vel enim sed, posuere convallis leo. Ut auctor enim eu turpis semper, ac auctor orci efficitur. Morbi facilisis odio erat, et imperdiet elit luctus eget. Duis diam metus, bibendum sit amet placerat at, tincidunt sollicitudin velit.',
-        image: 'https://sample-posts-frontend-test.s3.amazonaws.com/post_1.jpg',
-        createdAt: '2022-04-17T16:39:02Zz',
+    if (!params || !params.post) {
+        return {
+            notFound: true,
+        }
     }
+    const post: IPost = await fetcher({
+        url: 'https://sample-posts.coderockr.com/api/posts/' + params.post,
+        method: 'GET',
+    })
 
     return {
         props: {
