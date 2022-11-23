@@ -23,3 +23,5 @@ It is also possible to use the production version of the application.
 `sweetalert2`: used to show alert in case of error;
 `sharp`: used for image optimization by Next.js;
 `@headlessui/react`: used to show form contact modal.
+
+In the development environment, `prettier` and `eslint` were used for formatting and code analysis.
