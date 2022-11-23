@@ -9,6 +9,7 @@ import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import MainContent from '@/components/shared/template/MainContent'
 import SmallCard from '@/components/system/SmallCard'
 import fetcher from '@/utils/fetcher'
+import { reactSwal } from '@/utils/reactSwal'
 
 interface IPostsPageProps {
     posts: IPost[]
@@ -22,19 +23,27 @@ export default function PostsPage({ posts }: IPostsPageProps): JSX.Element {
     })
 
     const fetchData = useCallback(async () => {
-        const response: IPost[] = await fetcher({
-            url: `https://sample-posts.coderockr.com/api/posts?_start=${postsData.startMorePosts}&_limit=4`,
-            method: 'GET',
-        })
-        if (response.length === 0) {
-            setPostsData({ ...postsData, hasMore: false })
-            return
+        try {
+            const response: IPost[] = await fetcher({
+                url: `/api/posts?_start=${postsData.startMorePosts}&_limit=4`,
+                method: 'GET',
+            })
+            if (response.length === 0) {
+                setPostsData({ ...postsData, hasMore: false })
+                return
+            }
+            setPostsData({
+                posts: [...postsData.posts, ...response],
+                startMorePosts: postsData.startMorePosts + response.length,
+                hasMore: true,
+            })
+        } catch (error) {
+            reactSwal.fire({
+                title: 'Oops!',
+                text: 'Ocorreu algum erro ao buscar os dados',
+                type: 'error',
+            })
         }
-        setPostsData({
-            posts: [...postsData.posts, ...response],
-            startMorePosts: postsData.startMorePosts + response.length,
-            hasMore: true,
-        })
     }, [postsData])
 
     return (
@@ -133,7 +142,7 @@ export default function PostsPage({ posts }: IPostsPageProps): JSX.Element {
 
 export const getServerSideProps: GetServerSideProps<{ posts: IPost[] }> = async () => {
     const response = await fetcher({
-        url: 'https://sample-posts.coderockr.com/api/posts?_limit=8&_page=1',
+        url: '/api/posts?_limit=8',
         method: 'GET',
     })
     const posts = response as IPost[]
