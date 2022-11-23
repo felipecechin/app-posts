@@ -50,14 +50,14 @@ export default function PostsPage({ posts }: IPostsPageProps): JSX.Element {
         <>
             <Header />
             <MainContent>
-                <div className='max-w-5xl mx-auto h-full mt-4'>
+                <div className='max-w-5xl mx-auto mt-4'>
                     <InfiniteScroll
                         dataLength={postsData.posts.length}
                         hasMore={postsData.hasMore}
                         loader={<LoadingSpinner />}
                         next={fetchData}
                     >
-                        <div className='grid grid-cols-1 md:grid-cols-6 gap-y-4 overflow-auto'>
+                        <div className='grid grid-cols-1 md:grid-cols-6 gap-y-4'>
                             {postsData.posts.map((postItem, index) => {
                                 if (index % 6 === 0) {
                                     return (

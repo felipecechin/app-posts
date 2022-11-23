@@ -35,7 +35,7 @@ export default function PostPage({ post }: IPostPageProps): JSX.Element {
         <>
             <Header />
             <MainContent>
-                <div className='max-w-4xl mx-auto h-full bg-white mt-4'>
+                <div className='max-w-4xl mx-auto bg-white mt-4'>
                     <article className='flex flex-col'>
                         <div className='grid grid-cols-1 sm:grid-cols-2 sm:h-[350px]'>
                             {divImage}
