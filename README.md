@@ -1,21 +1,25 @@
-## Repositório modelo
-Este repositório serve como template para criação de aplicações front-end utilizando as seguintes tecnologias:
+## Front End Test Project
+The application was built using the following technologies:
 - Next.js;
 - React;
-- Tailwind CSS.
+- Typescript.
 
-O repositório já inclui:
-- ESLint e algumas regras;
-- SASS integrado;
-- Estrutura de pastas para criação de componentes;
-- Pasta `types` para criação de tipagens comuns a serem utilizadas na aplicação;
-- Funções/utilidades na pasta `utils`:
-  - `classNames` (utilizada no Tailwind);
-  - `fetcher` (para chamadas à API);
-  - classe `FetchError` (para causar `exception` ao ocorrer erro no `fetcher`);
-  - funções para manipulação de cookies (`cookies.ts`);
-  - Wrapper `withSSRAuth` para verificar se usuário está autenticado para exibir página `Server Side`.
-- Arquivo `env.ts` dentro da pasta `src`;
-- Arquivo `tsconfig.ts` com caminhos relativos (propriedade `paths`).
+Node version used: v16.14.2
 
-Faça bons códigos :)
+## Running application
+To run the application, follow these steps:
+1. Create .env file based on .env.example file and define API url;
+    - In my case, the URL was used: https://sample-posts.coderockr.com
+2. Run `yarn` command to install dependencies;
+3. Run `yarn dev` to run the application.
+
+It is also possible to use the production version of the application. 
+    - In this case, run the command `yarn build` and then `yarn start`.
+
+## Packages used
+`dayjs`: used to format dates;
+`react-icons`: used to show icons;
+`react-infinite-scroll-component`: used to implement infinite scroll functionality;
+`sweetalert2`: used to show alert in case of error;
+`sharp`: used for image optimization by Next.js;
+`@headlessui/react`: used to show form contact modal.
