@@ -2,6 +2,7 @@ import { AiFillForward } from 'react-icons/ai'
 import CardDescription from '../CardDescription'
 import { IPost } from '@/types/post'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useMemo } from 'react'
 
 interface ISmallCardProps {
@@ -24,18 +25,23 @@ function SmallCard({ post, imagePosition }: ISmallCardProps): JSX.Element {
     }, [post])
 
     return (
-        <div className='bg-white grid grid-cols-1 sm:grid-cols-3 h-[200px] relative'>
-            {imagePosition === 'left' && divImage}
-            <div className='sm:col-span-2 flex items-center relative'>
-                <CardDescription
-                    authorName={post.author.name}
-                    content={post.content}
-                    title={post.title}
-                />
-                <AiFillForward className='absolute right-3 bottom-3 h-6 w-6 text-primary-brand-color' />
+        <Link
+            className='block hover:border hover:border-black hover:shadow-lg'
+            href={'/' + post.id}
+        >
+            <div className='bg-white grid grid-cols-1 sm:grid-cols-3 h-[200px] relative'>
+                {imagePosition === 'left' && divImage}
+                <div className='sm:col-span-2 flex items-center relative'>
+                    <CardDescription
+                        authorName={post.author.name}
+                        content={post.content}
+                        title={post.title}
+                    />
+                    <AiFillForward className='absolute right-3 bottom-3 h-6 w-6 text-primary-brand-color' />
+                </div>
+                {imagePosition === 'right' && divImage}
             </div>
-            {imagePosition === 'right' && divImage}
-        </div>
+        </Link>
     )
 }
 
