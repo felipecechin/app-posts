@@ -4,6 +4,7 @@ The application was built using the following technologies:
 - React;
 - Typescript.
 
+For styling, Tailwind CSS was used.
 Node version used: v16.14.2
 
 ## Running application
