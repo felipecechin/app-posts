@@ -3,3 +3,25 @@ body {
 
     @apply bg-gradient-to-r from-text-gradient to-[#342303];
 }
+
+.grid-show-posts {
+    @apply grid grid-cols-1 md:grid-cols-6 gap-y-4;
+
+    > div:nth-child(6n+1),
+    > div:nth-child(6n+4) {
+        @apply md:col-start-1 md:col-end-4;
+    }
+
+    > div:nth-child(6n+2),
+    > div:nth-child(6n+5) {
+        @apply md:col-start-4 md:col-end-7;
+    }
+
+    > div:nth-child(6n+3) {
+        @apply md:col-start-3 md:col-span-4;
+    }
+
+    > div:nth-child(6n+6) {
+        @apply md:col-start-1 md:col-end-5;
+    }
+}

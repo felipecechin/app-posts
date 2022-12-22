@@ -10,7 +10,7 @@ function Header(): JSX.Element {
             <div className='max-w-4xl flex flex-row mx-auto text-white font-bold items-center'>
                 <span className='flex-grow'>
                     <h1 className='text-lg sm:text-2xl'>
-                        <Link href='/'>Rockr Blog</Link>
+                        <Link href='/'>Blog</Link>
                     </h1>
                 </span>
                 <span>

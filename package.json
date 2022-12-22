@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "server": "json-server --watch db.json --port 3002"
     },
     "dependencies": {
         "@headlessui/react": "^1.7.4",
@@ -17,7 +18,7 @@
         "react-icons": "^4.6.0",
         "react-infinite-scroll-component": "^6.1.0",
         "sharp": "^0.31.2",
-        "sweetalert2": "^8.19.1",
+        "sweetalert2": "^11.6.16",
         "sweetalert2-react-content": "^5.0.7"
     },
     "devDependencies": {

@@ -67,7 +67,7 @@ export const getServerSideProps: GetServerSideProps<{ post: IPost }> = async ({ 
         }
     }
     const post: IPost = await fetcher({
-        url: '/api/posts/' + params.post,
+        url: '/posts/' + params.post,
         method: 'GET',
     })
 
