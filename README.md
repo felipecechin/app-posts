@@ -12,7 +12,7 @@ Node version used: v16.14.2
 To run the application, follow these steps:
 
 1. Create .env file based on .env.example file and define API URL;
-    - In my case, the URL was used: https://sample-posts.coderockr.com
+    - In my case, the URL was used: http://localhost:3002. 
 2. Run `yarn` command to install dependencies;
 3. Run `yarn dev` to run the application.
 
